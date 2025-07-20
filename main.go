@@ -51,10 +51,8 @@ import (
 //	@description				Type "Bearer" followed by a space and JWT token.
 
 func main() {
-	// Load file .env
-	if err := godotenv.Load(); err != nil {
-		log.Fatal("❌ Gagal load file .env")
-	}
+	// Load file .env hanya untuk local development, tidak fatal jika gagal
+	_ = godotenv.Load()
 
 	// Koneksi ke MongoDB
 	config.ConnectDB()
